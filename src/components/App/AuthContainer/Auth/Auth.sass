@@ -1,0 +1,36 @@
+@import assets/styles/tools/_root
+
+.auth 
+	display: flex
+	align-items: center
+	justify-content: center
+	@include full-size
+
+
+.auth-card 
+	display: grid
+	grid-row-gap: 1rem
+	justify-items: center
+	padding: 1rem
+
+	background-color: $c-grey
+	border-radius: $br-primary
+
+	&__title 
+		color: $c-white
+		font: $fw-bold 2rem/2.55rem $ff-primary;
+	
+
+	&__btn 
+		width: min-content
+		padding: .8rem 1.5rem .8rem
+
+		background-color: $c-spotify
+		border: none
+		border-radius: $br-primary
+
+		color: $c-grey-dark
+		font: $fw-bold 1rem/1 $ff-primary
+		text-transform: uppercase
+	
+
