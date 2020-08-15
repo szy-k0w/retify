@@ -1,7 +1,7 @@
 import SpotifyAPI from "./SpotifyAPI";
 
-const getRecentlyPlayedTracks = ({ limit = 20 }) => {
-	return SpotifyAPI({
+const getRecentlyPlayedTracks = async ({ limit = 20 }) => {
+	return await SpotifyAPI({
 		url: "/v1/me/player/recently-played",
 		params: {
 			limit,
