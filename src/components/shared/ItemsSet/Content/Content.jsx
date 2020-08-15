@@ -8,7 +8,6 @@ import SetStatus from "./SetStatus";
 const Content = ({ children, variant }) => {
 	const { items, isLoading, error, itemRef } = useContext(ItemsSetContext);
 
-	console.log(error && error.isAxiosError);
 	if (error) {
 		console.log(error.response);
 	}

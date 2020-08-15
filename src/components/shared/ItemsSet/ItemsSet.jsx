@@ -1,7 +1,5 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect, useCallback } from "react";
 import PropTypes from "prop-types";
-
-import useFetch from "hooks/useFetch";
 
 import Header from "./Header";
 import Content from "./Content";
@@ -19,31 +17,34 @@ const ItemsSetContext = createContext(initialContextValue);
 const ItemsSet = ({ children, handleFetch }) => {
 	const [items, setItems] = useState([]);
 	const [hasMore, setHasMore] = useState(true);
+	const [isLoading, setIsLoading] = useState(false);
+	const [error, setError] = useState(null);
 
-	const handleEnhancedFetch = async () => {
-		const params = {
-			offset: items.length,
-		};
-
-		return await handleFetch(params);
+	const fetchParams = {
+		offset: items.length,
+		lastItem: items[items.length - 1],
 	};
 
-	const [data, isLoading, error, fetchItems] = useFetch(handleEnhancedFetch);
-	const [itemRef] = useInifiniteScroll(isLoading, hasMore, fetchItems);
+	const handleEnhancedFetch = useCallback(async () => {
+		if (isLoading || error) return;
 
-	useEffect(() => {
-		if (
-			data &&
-			data.hasOwnProperty("items") &&
-			data.hasOwnProperty("hasMore")
-		) {
-			const { items, hasMore } = data;
+		try {
+			setIsLoading(true);
+			const { items, hasMore } = await handleFetch(fetchParams);
 			setItems((currentItems) => [...currentItems, ...items]);
 			setHasMore(hasMore);
+			setIsLoading(false);
+		} catch (error) {
+			setError(error);
+			setIsLoading(false);
 		}
-	}, [data]);
+	}, [isLoading, error, handleFetch, fetchParams]);
 
-	useEffect(fetchItems, []);
+	const [itemRef] = useInifiniteScroll(isLoading, hasMore, handleEnhancedFetch);
+
+	useEffect(() => {
+		if (items.length === 0) handleEnhancedFetch();
+	}, [items.length, handleEnhancedFetch]);
 
 	const contextValue = {
 		items,
