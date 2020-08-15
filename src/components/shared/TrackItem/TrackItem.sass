@@ -1,0 +1,16 @@
+@import assets/styles/tools/_root
+
+.track-item
+    display: grid
+    grid-template-areas: "control cover description duration"
+    grid-template-rows: 1fr
+    grid-template-columns: auto 50px 1fr auto
+    gap: .8rem
+    align-items: center
+    padding: .1rem .8rem
+    margin: .1rem 0
+
+    border-radius: $br-primary;
+
+    &:hover
+        background-color: $c-grey

@@ -1,0 +1,17 @@
+@import assets/styles/tools/_root
+
+.track-description
+    grid-area: description
+    display: grid
+    grid-template-columns: 1fr
+    grid-template-rows: repeat(2, 1fr)
+
+    &__title
+        color: $c-white
+        font: $fw-bold 1.1rem/1.45rem $ff-primary
+        @include hide-text
+
+    &__artists-wrapper
+        color: $c-grey-light
+        font: $fw-normal 1.1rem/1.45rem $ff-primary
+        @include hide-text
