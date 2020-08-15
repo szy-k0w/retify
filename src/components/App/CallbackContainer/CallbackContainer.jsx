@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
+import { withRouter } from "react-router";
 
 import SpotifyAuth from "services/SpotifyAuth";
 
 import Callback from "./Callback";
-import { withRouter } from "react-router";
 
 const CallbackContainer = ({ history }) => {
 	useEffect(() => {
