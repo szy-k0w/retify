@@ -1,0 +1,25 @@
+@import assets/styles/tools/_root
+    
+.client
+    display: grid
+    grid-template-areas: "sidebar header" "sidebar content" "player player"
+    grid-template-rows: 60px 1fr 90px
+    grid-template-columns: 200px 1fr
+    @include full-size
+
+    &__content
+        grid-area: content
+
+        overflow-x: hidden
+        overflow-y: scroll
+        scroll-behavior: smooth
+        @include full-size
+
+        &::-webkit-scrollbar 
+            width: 10px
+
+        &::-webkit-scrollbar-thumb 
+            background: $c-grey
+            border-radius: 32px
+	
+	

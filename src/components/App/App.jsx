@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router";
 
 import AuthContainer from "./AuthContainer";
 import CallbackContainer from "./CallbackContainer";
+import ClientContainer from "./ClientContainer";
 import "./App.sass";
 
 const App = (props) => {
@@ -11,7 +12,7 @@ const App = (props) => {
 			<Switch>
 				<Route path="/auth" component={AuthContainer} />
 				<Route path="/callback" component={CallbackContainer} />
-				<Route path="/client">{/* TODO: ADD SUBPAGE */}</Route>
+				<Route path="/client" component={ClientContainer} />
 			</Switch>
 		</div>
 	);
