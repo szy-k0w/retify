@@ -7,6 +7,7 @@ const useFetch = (callback) => {
 
 	const handleFetch = useCallback(() => {
 		setIsLoading(true);
+		setError(null);
 		callback()
 			.then(setData)
 			.catch((error) => {

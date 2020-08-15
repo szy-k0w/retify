@@ -1,0 +1,28 @@
+@import assets/styles/tools/_root
+
+.error-card
+    width: min-content
+    min-width: 250px
+    max-width: 100%
+    display: grid
+    grid-template-areas: "title status" "message message"
+    justify-content: space-between
+    gap: 1rem
+    padding: .8rem
+    
+    border: 2px solid $c-error-light
+    border-radius: $br-primary
+    background-color: $c-error
+
+    &__title
+        grid-area: title
+        font: $fw-bold 1.4rem/1.6rem $ff-primary
+        text-transform: uppercase
+
+    &__status
+        grid-area: status
+        font: $fw-normal 1.25rem/1.4rem $ff-primary
+
+    &__msg
+        grid-area: message
+        font: $fw-normal 1.15rem/1.3rem $ff-primary
