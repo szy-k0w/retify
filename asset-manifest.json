@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/retify/static/css/main.787a3871.chunk.css",
+    "main.js": "/retify/static/js/main.294ce64f.chunk.js",
+    "main.js.map": "/retify/static/js/main.294ce64f.chunk.js.map",
+    "runtime-main.js": "/retify/static/js/runtime-main.d39fad55.js",
+    "runtime-main.js.map": "/retify/static/js/runtime-main.d39fad55.js.map",
+    "static/js/2.30499678.chunk.js": "/retify/static/js/2.30499678.chunk.js",
+    "static/js/2.30499678.chunk.js.map": "/retify/static/js/2.30499678.chunk.js.map",
+    "index.html": "/retify/index.html",
+    "precache-manifest.0bca22f8b545e4023e501e3d6877ad51.js": "/retify/precache-manifest.0bca22f8b545e4023e501e3d6877ad51.js",
+    "service-worker.js": "/retify/service-worker.js",
+    "static/css/main.787a3871.chunk.css.map": "/retify/static/css/main.787a3871.chunk.css.map",
+    "static/js/2.30499678.chunk.js.LICENSE.txt": "/retify/static/js/2.30499678.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d39fad55.js",
+    "static/js/2.30499678.chunk.js",
+    "static/css/main.787a3871.chunk.css",
+    "static/js/main.294ce64f.chunk.js"
+  ]
+}
