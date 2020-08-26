@@ -4,17 +4,10 @@ import cx from "classnames";
 
 import { ItemsSetContext } from "../ItemsSet";
 import SetStatus from "./SetStatus";
+import "./Content.sass";
 
 const Content = ({ children, variant }) => {
 	const { items, isLoading, error, itemRef } = useContext(ItemsSetContext);
-
-	if (error) {
-		console.log(error.response);
-	}
-
-	for (let key in error) {
-		console.log(key);
-	}
 
 	const contentClasses = cx({
 		"items-set-content": true,

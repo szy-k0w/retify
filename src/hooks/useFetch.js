@@ -2,10 +2,12 @@ import { useState, useCallback } from "react";
 
 const useFetch = (callback) => {
 	const [data, setData] = useState(null);
-	const [isLoading, setIsLoading] = useState(true);
+	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState(null);
 
 	const handleFetch = useCallback(() => {
+		if (isLoading) return;
+
 		setIsLoading(true);
 		setError(null);
 		callback()
@@ -15,7 +17,7 @@ const useFetch = (callback) => {
 				setError(error);
 			});
 		setIsLoading(false);
-	}, [callback]);
+	}, [callback, isLoading]);
 
 	return [data, isLoading, error, handleFetch];
 };

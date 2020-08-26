@@ -1,8 +1,8 @@
-import React, { createContext, useState, useEffect, useCallback } from "react";
-import PropTypes from "prop-types";
+import React, { createContext, useCallback, useEffect, useState } from "react";
 
-import Header from "./Header";
 import Content from "./Content";
+import Header from "./Header";
+import PropTypes from "prop-types";
 import useInifiniteScroll from "hooks/useInifiniteScroll";
 
 const initialContextValue = {
@@ -32,7 +32,8 @@ const ItemsSet = ({ children, handleFetch }) => {
 			setIsLoading(true);
 			const { items, hasMore } = await handleFetch(fetchParams);
 			setItems((currentItems) => [...currentItems, ...items]);
-			setHasMore(hasMore);
+			const newHasMore = items.length !== 0 ? hasMore : false;
+			setHasMore(newHasMore);
 			setIsLoading(false);
 		} catch (error) {
 			setError(error);

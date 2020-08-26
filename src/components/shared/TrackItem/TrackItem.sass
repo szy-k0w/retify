@@ -12,5 +12,9 @@
 
     border-radius: $br-primary;
 
+    &--no-cover
+        grid-template-areas: "control description duration"
+        grid-template-columns: auto 1fr auto
+
     &:hover
         background-color: $c-grey

@@ -1,13 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-
+import InfiniteArtistsSet from "components/shared/InfiniteArtistsSet/InfiniteArtistsSet";
 import ItemsSet from "components/shared/ItemsSet";
+import PropTypes from "prop-types";
+import React from "react";
 import SubpageContent from "components/shared/SubpageContent";
 import TrackItem from "components/shared/TrackItem";
 
-const Home = (props) => {
-	const { fetchRecentlyPlayed } = props;
-
+const Home = ({ fetchRecentlyPlayed, fetchTopArtists }) => {
 	const renderTracksList = (tracks) => {
 		return tracks.map((track) => <TrackItem key={track.id} track={track} />);
 	};
@@ -15,9 +13,10 @@ const Home = (props) => {
 	return (
 		<SubpageContent>
 			<ItemsSet handleFetch={fetchRecentlyPlayed}>
-				<ItemsSet.Header moreUrl="/">Recently Played</ItemsSet.Header>
+				<ItemsSet.Header>Recently Played</ItemsSet.Header>
 				<ItemsSet.Content variant="list">{renderTracksList}</ItemsSet.Content>
 			</ItemsSet>
+			<InfiniteArtistsSet title="Top Artists" fetchArtists={fetchTopArtists} />
 		</SubpageContent>
 	);
 };

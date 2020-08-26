@@ -1,0 +1,18 @@
+@import assets/styles/tools/_root
+
+.player 
+    grid-area: player
+    padding: .8rem
+    display: grid
+    grid-template-columns: 1fr 2fr 1fr
+    grid-template-rows: 1fr
+    grid-template-areas: "track-info music-control ."
+    background-color: $c-grey
+    @include full-size
+
+    &--loading 
+        display: flex
+        align-items: center
+        justify-content: center
+	
+

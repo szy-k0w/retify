@@ -14,7 +14,7 @@ const Cover = ({ src, alt }) => {
 };
 
 Cover.propTypes = {
-	src: PropTypes.string.isRequired,
+	src: PropTypes.string,
 	alt: PropTypes.string.isRequired,
 };
 

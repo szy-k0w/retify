@@ -1,14 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
+import cx from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faPlayCircle,
-	faStopCircle,
+	faPauseCircle,
 } from "@fortawesome/free-regular-svg-icons";
 
 import "./TrackControl.sass";
 
-const TrackControl = ({ handleClick, isPlaying, isActive }) => {
+const TrackControl = ({ id, uri, handleAction, isPlaying, isActive }) => {
+	const trackControlClasses = cx({
+		"track-control": true,
+		"track-control--active": isActive,
+	});
+
 	const renderIcon = () => {
 		if (!isActive || !isPlaying) {
 			return (
@@ -17,25 +23,30 @@ const TrackControl = ({ handleClick, isPlaying, isActive }) => {
 		}
 
 		return (
-			<FontAwesomeIcon icon={faStopCircle} className="track-control__icon" />
+			<FontAwesomeIcon icon={faPauseCircle} className="track-control__icon" />
 		);
 	};
 
 	return (
-		<aside onClick={handleClick} className="track-control">
+		<aside
+			onClick={() => handleAction({ id, uri })}
+			className={trackControlClasses}
+		>
 			{renderIcon()}
 		</aside>
 	);
 };
 
 TrackControl.propTypes = {
-	handleClick: PropTypes.func.isRequired,
+	id: PropTypes.string.isRequired,
+	handleAction: PropTypes.func.isRequired,
 	isPlaying: PropTypes.bool.isRequired,
 	isActive: PropTypes.bool.isRequired,
 };
 
 TrackControl.defaultProps = {
-	handleClick: () => {},
+	id: "",
+	handleAction: () => {},
 	isPlaying: false,
 	isActive: false,
 };

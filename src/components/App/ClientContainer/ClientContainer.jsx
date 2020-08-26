@@ -1,12 +1,16 @@
 import React from "react";
 
 import withAuthValidation from "components/hoc/withAuthValidation";
+import WebPlaybackProvider from "components/providers/WebPlaybackContext/WebPlaybackProvider";
 
 import Client from "./Client";
 
 const ClientContainer = (props) => {
-	// TODO: ADD WebPlaybackProvider
-	return <Client />;
+	return (
+		<WebPlaybackProvider>
+			<Client />
+		</WebPlaybackProvider>
+	);
 };
 
 ClientContainer.propTypes = {};

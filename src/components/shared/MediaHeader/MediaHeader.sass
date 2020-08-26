@@ -1,0 +1,19 @@
+@import assets/styles/tools/_root
+
+.media-header 
+    width: 100%
+    display: grid
+    grid-template-areas: "cover ." "cover type" "cover title" "cover details"
+    grid-template-columns: 200px 1fr
+    grid-template-rows: 1fr repeat(3, min-content)
+    align-items: flex-end
+    gap: 0.8rem
+    padding: 1rem 1rem 0
+
+    &--loading 
+        padding: 1rem
+        display: flex
+        align-items: center
+        justify-content: center
+	
+

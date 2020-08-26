@@ -1,0 +1,26 @@
+@import assets/styles/tools/_root
+    
+.card-header
+    position: relative
+
+    &__icon-wrapper
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        display: flex
+        align-items: center
+        justify-content: center
+        z-index: 2
+
+        opacity: 0
+        background-color: rgba($c-grey, 0.5)
+        transition: .2s
+
+        &:hover
+            opacity: 1
+
+    &__icon
+        color: $c-success
+        font-size: 4rem

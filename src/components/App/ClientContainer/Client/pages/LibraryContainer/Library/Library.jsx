@@ -1,17 +1,23 @@
-import React from "react";
+import { Redirect, Route, Switch } from "react-router";
+
+import InfiniteAlbumsSet from "components/shared/InfiniteAlbumsSet";
+import InfiniteArtistsSet from "components/shared/InfiniteArtistsSet";
 import PropTypes from "prop-types";
-import { Switch, Route } from "react-router";
-
+import React from "react";
 import SubpageContent from "components/shared/SubpageContent";
-import ItemsSet from "components/shared/ItemsSet";
 
-const Library = ({ fetchArtists, fetchAlbums }) => {
+const Library = ({ fetchFollowedArtists, fetchSavedAlbums }) => {
 	return (
 		<SubpageContent>
 			<Switch>
-				<Route path="/client/library/artists">Artists</Route>
+				<Route path="/client/library/artists">
+					<InfiniteArtistsSet fetchArtists={fetchFollowedArtists} />
+				</Route>
 				<Route path="/client/library/albums">
-					<ItemsSet></ItemsSet>
+					<InfiniteAlbumsSet fetchAlbums={fetchSavedAlbums} />
+				</Route>
+				<Route>
+					<Redirect to="/client/library/artists" />
 				</Route>
 			</Switch>
 		</SubpageContent>
@@ -19,8 +25,8 @@ const Library = ({ fetchArtists, fetchAlbums }) => {
 };
 
 Library.propTypes = {
-	fetchAlbums: PropTypes.func.isRequired,
-	fetchAlbums: PropTypes.func.isRequired,
+	fetchFollowedArtists: PropTypes.func.isRequired,
+	fetchSavedAlbums: PropTypes.func.isRequired,
 };
 
 export default Library;

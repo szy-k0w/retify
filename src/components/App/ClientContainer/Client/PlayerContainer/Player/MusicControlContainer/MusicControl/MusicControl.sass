@@ -1,0 +1,113 @@
+@import assets/styles/tools/_root
+
+.music-control
+    grid-area: music-control
+    display: grid
+    grid-template-columns: 1fr
+    grid-template-rows: repeat(2, 1fr)
+
+.action-buttons
+    display: grid
+    justify-content: center
+    align-items: center
+    gap: 2.5rem
+    grid-template-columns: repeat(3, min-content)
+    grid-template-rows: 1fr
+
+    &__main-icon
+        color: $c-grey-light
+        font-size: 2.3rem
+        transition: .2s
+
+        &:hover 
+            color: $c-white
+            transform: scale(1.05)
+		
+
+    &__aside-icon
+        color: $c-grey-light
+        font-size: 1.3rem
+        transition: .2s
+
+        &:hover 
+            color: $c-white
+            transform: scale(1.05)
+
+.progress-bar-wrapper
+    display: grid
+    justify-content: center
+    align-items: center
+    grid-template-columns: auto 1fr auto
+    grid-template-rows: 1fr
+    gap: .8rem
+
+    &__duration
+        color: $c-grey-light
+        font: $fw-bold .9rem/1rem $ff-primary
+
+    &__bar
+        -webkit-appearance: none
+        background: transparent
+        outline: none
+
+        &::-webkit-slider-thumb 
+            -webkit-appearance: none
+        &::-ms-track
+            width: 100%
+            cursor: pointer
+            background: transparent
+            border-color: transparent
+            color: transparent
+
+        &::-webkit-slider-thumb
+            width: 13px
+            height: 13px
+            border-radius: 32px
+            background-color: $c-white
+            border-radius: 1px solid $c-black
+            margin-top: -4px
+        &::-moz-range-thumb
+            width: 13px
+            height: 13px
+            border-radius: 32px
+            background-color: $c-white
+            border-radius: 1px solid $c-black
+        &::-ms-thumb 
+            width: 13px
+            height: 13px
+            border-radius: 32px
+            background-color: $c-white
+            border-radius: 1px solid $c-black
+        
+        &::-webkit-slider-runnable-track
+            width: 100%
+            height: 4px
+            cursor: pointer
+            background: #505050
+            border-radius: 32px
+        &::-ms-track
+            width: 100%
+            height: 4px
+            cursor: pointer
+            background: #505050
+            border-radius: 32px
+        &::-moz-range-track
+            width: 100%
+            height: 4px
+            cursor: pointer
+            background: #505050
+            border-radius: 32px
+
+        &::-moz-range-progress
+            background-color: $c-success
+        &::-ms-fill-lower
+            background-color: $c-success
+    // Thumb
+
+        // &::-webkit-slider-thumb
+            // border: 1px solid $c-white;
+
+    // Track
+     
+
+

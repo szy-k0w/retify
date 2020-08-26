@@ -1,0 +1,42 @@
+@import assets/styles/tools/_root
+    
+
+.track-info 
+	
+	grid-area: track-info
+	display: flex
+	flex-direction: row
+	@include full-size
+
+	&__cover 
+		height: 100%
+		max-height: 100%
+
+		margin-right: .8rem
+	
+
+
+.track-details 
+	
+	display: grid
+	grid-template-areas: "name" "artists"
+	gap: .5rem
+	@include full-size
+
+	&__name 
+		grid-area: name
+		align-self: flex-end
+
+		color: $c-white
+		font: 700 1.3rem/1.65rem $ff-primary
+		@include hide-text
+
+	&__artists 
+		grid-area: artists
+		align-self: flex-start
+
+		color: $c-grey-light
+		font: 400 1rem/1.3rem $ff-primary
+		@include hide-text
+	
+

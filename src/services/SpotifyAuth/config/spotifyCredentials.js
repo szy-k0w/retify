@@ -2,7 +2,11 @@ const spotifyCredentials = {
 	client_id: "1bb9eb7f824b458bbb58657dbc1877ba",
 	redirect_url: "http://localhost:3000/callback",
 	response_type: "token",
-	scope: [].join(","),
+	scope: [
+		"user-read-playback-state",
+		"user-modify-playback-state",
+		"streaming",
+	].join(","),
 };
 
 export default spotifyCredentials;

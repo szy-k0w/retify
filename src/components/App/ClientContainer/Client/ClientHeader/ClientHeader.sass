@@ -1,0 +1,31 @@
+@import assets/styles/tools/_root
+
+.client-header
+    grid-area: header
+    display: flex
+    // flex-direction: row-reverse
+    align-items: center
+    justify-content: space-between
+    padding: .8rem .8rem .8rem 0
+
+    background-color: $c-black
+    @include full-size
+        
+       
+.log-out-wrapper
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: flex-end
+
+    &__btn
+        padding: .8rem 1.5rem .8rem
+
+        outline: none;
+        background-color: transparent
+        border: 2px solid $c-error
+        border-radius: $br-primary
+
+        color: $c-error
+        font: $fw-bold 1rem/1 $ff-primary
+        text-transform: uppercase

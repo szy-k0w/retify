@@ -1,10 +1,11 @@
-import React from "react";
-import { Switch, Route } from "react-router";
+import "./App.sass";
+
+import { Redirect, Route, Switch } from "react-router";
 
 import AuthContainer from "./AuthContainer";
 import CallbackContainer from "./CallbackContainer";
 import ClientContainer from "./ClientContainer";
-import "./App.sass";
+import React from "react";
 
 const App = (props) => {
 	return (
@@ -13,6 +14,9 @@ const App = (props) => {
 				<Route path="/auth" component={AuthContainer} />
 				<Route path="/callback" component={CallbackContainer} />
 				<Route path="/client" component={ClientContainer} />
+				<Route>
+					<Redirect to="/client" />
+				</Route>
 			</Switch>
 		</div>
 	);

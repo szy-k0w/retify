@@ -1,15 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
+import cx from "classnames";
 
 import "./TrackDescription.sass";
+import ArtistLinksList from "components/shared/ArtistLinksList/ArtistLinksList";
 
-const TrackDescription = ({ title, artists }) => {
+const TrackDescription = ({ title, artists, isActive }) => {
+	const trackItemClasses = cx({
+		"track-description": true,
+		"track-description--active": isActive,
+	});
+
 	return (
-		<main className="track-description">
+		<main className={trackItemClasses}>
 			<h3 className="track-description__title">{title}</h3>
-			<h3 className="track-description__artists-wrapper">
+			<h3 className="track-description__artists">
 				{/* TODO: ADD LINK */}
-				{artists.map((artist) => artist.name).join(", ")}
+				<ArtistLinksList artists={artists} />
 			</h3>
 		</main>
 	);
@@ -23,6 +30,7 @@ TrackDescription.propTypes = {
 			name: PropTypes.string.isRequired,
 		})
 	).isRequired,
+	isActive: PropTypes.bool,
 };
 
 TrackDescription.defaultProps = {

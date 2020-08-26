@@ -11,7 +11,11 @@
         font: $fw-bold 1.1rem/1.45rem $ff-primary
         @include hide-text
 
-    &__artists-wrapper
+    &__artists
         color: $c-grey-light
         font: $fw-normal 1.1rem/1.45rem $ff-primary
         @include hide-text
+
+    &--active
+        .track-description__title
+            color: $c-success
